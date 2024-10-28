@@ -18,19 +18,17 @@ $ conda env create -f environment.yaml
 ```
 ## Download
 ### Dataset
-- We are currently utilizing the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3041807/">LIDC-IDRI</a> dataset. You can download the original dataset <a href="https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254">here</a>. 
-Follow the instructions in [prepare_datasets.md](data_preprocessing/prepare_datasets.md) to preprocess the dataset.
+- Convert the CT slices in your own dataset into 256x256 png images and store them in “./data/CT/<dateset>”, then write the file names into train.txt and val.txt.
 
 ### Pretrained Model
 - For the pretrained weights VQ-F4 using in autoencoder. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/vq-f4.zip">here</a>.
 - For the pretrained weights LDM-VQ-4 using in noise estimation network. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/sr_bsr.zip">here</a>.
 ## Training
-To train PerX2CT, run `main.py` with the hyper-parameters provided below:
+To train TICT, run `main.py` with the hyper-parameters provided below:
 ```
-python main.py --train True --gpus <gpu_ids> --name <exp_name> --base <path_to_base_config>
+python main.py --base configs/latent-diffusion/config.yaml --gpus 1
 ```
-**Note**: The hyperparameters used in our paper's experiments are set as default. <br />
-**Note**: The configuration for training the PerX2CT model without zoom-in is `configs/PerX2CT.yaml`, while the configuration for training the PerX2CT<sub>global</sub> model with zoom-in is `configs/PerX2CT_global_w_zoomin.yaml`. <br /><br />
+During the training process, the generated results on the test set will be automatically evaluated and saved at regular intervals.
 
 ## Citation
 If you use this code for your research, please cite our paper.
