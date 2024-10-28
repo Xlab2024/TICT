@@ -34,15 +34,16 @@ During the training process, the generated results on the test set will be autom
 If you use this code for your research, please cite our paper.
 
 ```bibtex
-@ARTICLE{10533689,
-  author={Jin, Can and Meng, Xiangzhu and Li, Xuanheng and Wang, Jie and Pan, Miao and Fang, Yuguang},
-  journal={IEEE Transactions on Mobile Computing}, 
-  title={Rodar: Robust Gesture Recognition Based on mmWave Radar Under Human Activity Interference}, 
+@ARTICLE{10711937,
+  author={Hou, Lei and Liu, Jiahong and Li, Xuanheng and Sun, Yi},
+  journal={IEEE Transactions on Instrumentation and Measurement}, 
+  title={Two-View Industrial CT Reconstruction Based on a Multiscale Conditional Latent Diffusion Network}, 
   year={2024},
-  volume={},
+  volume={73},
   number={},
-  pages={1-14},
-  keywords={Interference;Gesture recognition;Feature extraction;Radar;Sensors;Doppler effect;Data mining;Wireless Sensing;Millimeter Wave Radar;Gesture Recognition;Human Activity Interference;Deep Learning},
-  doi={10.1109/TMC.2024.3402356}}
+  pages={1-12},
+  keywords={Computed tomography;Image reconstruction;Diffusion models;Feature extraction;Three-dimensional displays;Optimization;Noise;Shape;Generative adversarial networks;Reconstruction algorithms;Diffusion model;industrial defect detection;two-view computed tomography (CT) reconstruction},
+  doi={10.1109/TIM.2024.3476543}}
+
 
 <p align="right">(<a href="#top">Reture to top</a>)</p>
