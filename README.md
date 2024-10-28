@@ -44,6 +44,3 @@ If you use this code for your research, please cite our paper.
   pages={1-12},
   keywords={Computed tomography;Image reconstruction;Diffusion models;Feature extraction;Three-dimensional displays;Optimization;Noise;Shape;Generative adversarial networks;Reconstruction algorithms;Diffusion model;industrial defect detection;two-view computed tomography (CT) reconstruction},
   doi={10.1109/TIM.2024.3476543}}
-
-
-<p align="right">(<a href="#top">Reture to top</a>)</p>
