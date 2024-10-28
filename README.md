@@ -18,14 +18,17 @@ $ conda env create -f environment.yaml
 ```
 ## Download
 ### Dataset
-- Convert the CT slices in your own dataset into 256x256 png images and store them in “./data/CT/<dateset>”, then write the file names into train.txt and val.txt.
+- Convert the CT slices in your own dataset into 256x256 png images and store them in “./data/CT/your_dataset”, then write the file names into train.txt and val.txt.
 
 ### Pretrained Model
-- For the pretrained weights VQ-F4 using in autoencoder. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/vq-f4.zip">here</a>.
-- For the pretrained weights LDM-VQ-4 using in noise estimation network. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/sr_bsr.zip">here</a>.
+- For the pretrained weights VQ-F4 to train autoencoder. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/vq-f4.zip">here</a>.
+- For the pretrained weights LDM-VQ-4 to train noise estimation network. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/sr_bsr.zip">here</a>.
 ## Training
 To train TICT, run `main.py` with the hyper-parameters provided below:
 ```
+#First, train the autoencoder to obtain "last.ckpt".
+python main.py --base configs/autoencoder/VQ_f4_64x64x3.yaml -t --gpus 1
+#Next, with the "last.ckpt", train the remaining network components.
 python main.py --base configs/latent-diffusion/config.yaml --gpus 1
 ```
 During the training process, the generated results on the test set will be automatically evaluated and saved at regular intervals.
