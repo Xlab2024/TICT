@@ -12,7 +12,7 @@ $ cd TICT
 ```
 
 ### Install requirements
-Create a conda environment, activate it, and install the required packages:
+Create a conda environment with the file provided:
 ```
 $ conda env create -f environment.yaml
 ```
@@ -22,8 +22,8 @@ $ conda env create -f environment.yaml
 Follow the instructions in [prepare_datasets.md](data_preprocessing/prepare_datasets.md) to preprocess the dataset.
 
 ### Pretrained Model
-- We've provided the pretrained weights used for our paper's experiments. You can download these weights <a href="https://drive.google.com/drive/folders/14_V8E0XklPRax4S4nQfeUnHS2gml-_PO">here</a>.  <br /><br />
-
+- For the pretrained weights VQ-F4 using in autoencoder. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/vq-f4.zip">here</a>.
+- For the pretrained weights LDM-VQ-4 using in noise estimation network. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/sr_bsr.zip">here</a>.
 ## Training
 To train PerX2CT, run `main.py` with the hyper-parameters provided below:
 ```
