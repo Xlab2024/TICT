@@ -3,53 +3,34 @@
 # TICT
 <img src="images/TICT.png" alt="MvDeFormer-logo" width="833" height="475">
 
-## Setup
-
-### Prerequisites
-- Linux or Windows
-- NVIDIA GPU + CUDA CuDNN (CPU mode and CUDA without CuDNN may work with minimal modification, but untested)
-
-### Getting Started
-- Install torch and dependencies from https://github.com/torch/distro
-- Install torch packages tqdm, sklearn, einops and linformer
-```bash
-pip install tqdm
-pip install -U scikit-learn
-pip install einops
-pip install linformer
+## Environment
+### Setup
+Clone the repository and navigate into the directory:
 ```
-### Dataset Preparation
-
-To get started, please follow these steps:
-
-1. **Store the Dataset**: Place your dataset in the `data_picture` directory. Ensure that all the data you intend to use is properly organized within this folder.
-
-2. **Splitting the Dataset**: Run the `process_radar_data` script to split your dataset into training, validation, and test sets with a ratio of 7:1:2. This will help in evaluating the model's performance accurately.
-
-Open a terminal or command prompt and navigate to the directory containing the `process_radar_data` script. Run the following command:
-
-```bash
-python process_radar_data.py
+$ git clone https://github.com/Xlab2024/TICT.git
+$ cd TICT
 ```
-## Train
 
-**Run the Training Script**: Execute the `train.py` script from your terminal or command prompt to start the training process. You can run the script using the following command:
-```bash
-   python train.py
+### Install requirements
+Create a conda environment, activate it, and install the required packages:
 ```
-Model Parameters: After the training process is complete, the trained model parameters will be saved in the model_parameter directory. Ensure this directory exists or the script will create it for you.
-
-## Test
-
-After training your model, you can test its performance using the `test.py` script. Follow these steps to conduct the test:
-
-**Run the Testing Script**: Execute `test.py` from your terminal or command prompt to begin the testing process. Use the following command:
- ```bash
-   python test.py
+$ conda env create -f environment.yaml
 ```
-Model Loading: The script will automatically load the model parameters from the model_parameter directory. Ensure that your trained model parameters are correctly saved in this directory before running the test.
+## Download
+### Dataset
+- We are currently utilizing the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3041807/">LIDC-IDRI</a> dataset. You can download the original dataset <a href="https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254">here</a>. 
+Follow the instructions in [prepare_datasets.md](data_preprocessing/prepare_datasets.md) to preprocess the dataset.
 
-Test Output: Upon completion, the script will output the loss and accuracy of the model on the test dataset. This information will help you evaluate the model's performance.
+### Pretrained Model
+- We've provided the pretrained weights used for our paper's experiments. You can download these weights <a href="https://drive.google.com/drive/folders/14_V8E0XklPRax4S4nQfeUnHS2gml-_PO">here</a>.  <br /><br />
+
+## Training
+To train PerX2CT, run `main.py` with the hyper-parameters provided below:
+```
+python main.py --train True --gpus <gpu_ids> --name <exp_name> --base <path_to_base_config>
+```
+**Note**: The hyperparameters used in our paper's experiments are set as default. <br />
+**Note**: The configuration for training the PerX2CT model without zoom-in is `configs/PerX2CT.yaml`, while the configuration for training the PerX2CT<sub>global</sub> model with zoom-in is `configs/PerX2CT_global_w_zoomin.yaml`. <br /><br />
 
 ## Citation
 If you use this code for your research, please cite our paper.
