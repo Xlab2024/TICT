@@ -24,11 +24,9 @@ $ conda env create -f environment.yaml
 - For the pretrained weights VQ-F4 to train autoencoder. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/vq-f4.zip">here</a>.
 - For the pretrained weights LDM-VQ-4 to train noise estimation network. You can download from <a href="https://ommer-lab.com/files/latent-diffusion/sr_bsr.zip">here</a>.
 ## Training
-To train TICT, run `main.py` with the hyper-parameters provided below:
+First, train the autoencoder to obtain "last.ckpt". Next, with the "last.ckpt", train the remaining network components.
 ```
-#First, train the autoencoder to obtain "last.ckpt".
 python main.py --base configs/autoencoder/VQ_f4_64x64x3.yaml -t --gpus 1
-#Next, with the "last.ckpt", train the remaining network components.
 python main.py --base configs/latent-diffusion/config.yaml --gpus 1
 ```
 During the training process, the generated results on the test set will be automatically evaluated and saved at regular intervals.
